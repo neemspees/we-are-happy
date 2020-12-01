@@ -2,14 +2,17 @@
 
 namespace App\Providers;
 
+use App\Repositories\Interfaces\IVoteCastRepository;
 use App\Repositories\Interfaces\IVoteRepository;
+use App\Repositories\VoteCastRepository;
 use App\Repositories\VoteRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
     public $bindings = [
-        IVoteRepository::class => VoteRepository::class
+        IVoteRepository::class => VoteRepository::class,
+        IVoteCastRepository::class => VoteCastRepository::class
     ];
 
     /**
