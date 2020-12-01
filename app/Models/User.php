@@ -2,9 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Permission\Traits\HasRoles;
 
+/**
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ *
+ * @property VoteCast[]|Collection $voteCasts
+ */
 class User extends Authenticatable
 {
     use HasRoles;
@@ -38,4 +46,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function voteCasts()
+    {
+        return $this->hasMany(VoteCast::class);
+    }
 }
