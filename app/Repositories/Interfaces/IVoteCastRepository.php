@@ -12,4 +12,11 @@ interface IVoteCastRepository
      * @return VoteCast
      */
     public function store(VoteCast $voteCast): VoteCast;
+
+    /**
+     * @param int $userId
+     *
+     * @return VoteCast|null
+     */
+    public function getLastByUserId(int $userId): ?VoteCast;
 }

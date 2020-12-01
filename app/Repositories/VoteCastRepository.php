@@ -15,4 +15,15 @@ class VoteCastRepository implements IVoteCastRepository
         $voteCast->save();
         return $voteCast;
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getLastByUserId(int $userId): ?VoteCast
+    {
+        return VoteCast::query()
+            ->where('user_id', $userId)
+            ->orderBy('created_at', 'desc')
+            ->first();
+    }
 }
