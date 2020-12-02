@@ -2,6 +2,7 @@
 
 use App\Constants\Permissions;
 use App\Http\Controllers\API\StatisticsController;
+use App\Http\Controllers\API\VoteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/statistics', [StatisticsController::class, 'get'])->middleware('permission:' . Permissions::READ_STATISTICS);
+Route::post('/votes', [VoteController::class, 'create'])->middleware('permission:' . Permissions::CREATE_VOTE);
