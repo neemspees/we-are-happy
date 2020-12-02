@@ -3,8 +3,8 @@
 1. Copy the `.env.example` file to a file named `.env` and change the environment variables to work with your
 environment, this file should be in the root of the project
 1. Run the `php artisan key:generate` command to generate an app key
-1. Create a database named `we_are_happy`
-1. Update the `.env` with your database configuration
+1. Create a `mysql` database named `we_are_happy`
+1. Update the `.env` with your database `mysql` configuration
 1. Run the `php artisan migrate` command to create the required tables in your database
 1. The `php artisan db:seed` command will seed the database with users, roles and permissions
 1. Use the `php artisan serve` command to start a local development server
@@ -54,3 +54,17 @@ An employee can only vote `once every day` (calculated in the timezone that is s
     }
 }
 ```
+
+### Web interface usage
+The web interface will be reachable at `http://localhost:8000/`
+
+I think the web interface is pretty straight forward and doesn't require an explanation to use,
+you can use the following credentials to log in.
+
+role|e-mail|password
+----|------|--------
+Manager|manager1@happy.test|pass
+Manager|manager2@happy.test|pass
+Employee|employee1@happy.test|pass
+Employee|employee2@happy.test|pass
+Employee|employee3@happy.test|pass

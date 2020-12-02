@@ -10,7 +10,8 @@ use Illuminate\Validation\UnauthorizedException;
 class HomeController extends Controller
 {
     protected $rolesViews = [
-        Roles::EMPLOYEE => 'vote'
+        Roles::EMPLOYEE => 'vote',
+        Roles::MANAGER => 'statistics'
     ];
 
     public function home(Request $request)

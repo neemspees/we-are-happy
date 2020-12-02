@@ -1,6 +1,7 @@
 <?php
 
 use App\Constants\Permissions;
+use App\Http\Controllers\Web\StatisticsController;
 use App\Http\Controllers\WEB\VoteController;
 use App\Http\Controllers\Web\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:web')->group(function() {
     Route::get('/', [HomeController::class, 'home'])->name('home');
+
+    Route::get('/statistics', [StatisticsController::class, 'statistics'])
+        ->middleware('permission:' . Permissions::READ_STATISTICS)->name('statistics');
 
     Route::middleware('permission:' . Permissions::CREATE_VOTE)->prefix('vote')->group(function() {
         Route::get('/', [VoteController::class, 'vote'])->name('vote');
