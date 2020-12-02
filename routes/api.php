@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Constants\Permissions;
+use App\Http\Controllers\API\StatisticsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/statistics', [StatisticsController::class, 'get'])->middleware('permission:' . Permissions::READ_STATISTICS);
