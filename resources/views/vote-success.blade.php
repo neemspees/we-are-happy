@@ -8,7 +8,7 @@
                     <div class="card-header">Vote</div>
 
                     <div class="card-body">
-                        <p>Your vote has been registered.</p>
+                        <p class="mb-0">Your vote has been registered.</p>
                     </div>
                 </div>
             </div>

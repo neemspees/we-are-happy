@@ -10,6 +10,15 @@ use Illuminate\Http\Request;
 
 class VoteController extends Controller
 {
+    public function vote(Request $request, IVoteService $voteService)
+    {
+        $user = $request->user();
+
+        $userHasVoted = !$voteService->canUserVote($user);
+
+        return view('vote', ['userHasVoted' => $userHasVoted]);
+    }
+
     public function doVote(Request $request, IVoteService $voteService)
     {
         $request->validate([

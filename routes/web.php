@@ -20,7 +20,7 @@ Route::middleware('auth:web')->group(function() {
     Route::get('/', [HomeController::class, 'home'])->name('home');
 
     Route::middleware('permission:' . Permissions::CREATE_VOTE)->prefix('vote')->group(function() {
-        Route::view('/', 'vote')->name('vote');
+        Route::get('/', [VoteController::class, 'vote'])->name('vote');
         Route::post('/', [VoteController::class, 'doVote'])->name('vote.do');
         Route::view('/success', 'vote-success')->name('vote.success');
     });
