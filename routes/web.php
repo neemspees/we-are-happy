@@ -1,6 +1,7 @@
 <?php
 
 use App\Constants\Permissions;
+use App\Http\Controllers\WEB\VoteController;
 use App\Http\Controllers\Web\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,5 +18,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:web')->group(function() {
     Route::get('/', [HomeController::class, 'home'])->name('home');
-    Route::view('/vote', 'vote')->name('vote')->middleware('permission:' . Permissions::CREATE_VOTE);
+
+    Route::middleware('permission:' . Permissions::CREATE_VOTE)->prefix('vote')->group(function() {
+        Route::view('/', 'vote')->name('vote');
+        Route::post('/', [VoteController::class, 'doVote'])->name('vote.do');
+        Route::view('/success', 'vote-success')->name('vote.success');
+    });
 });
