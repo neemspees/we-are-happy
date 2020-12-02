@@ -5,10 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Home</div>
+                <div class="card-header">Vote</div>
 
                 <div class="card-body">
-                    <h1>Home</h1>
+                    <h1>Vote</h1>
                 </div>
             </div>
         </div>
