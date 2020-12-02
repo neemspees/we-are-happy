@@ -22,12 +22,35 @@ For testing purposes you can use the `MANAGER1_TEST_TOKEN` and `EMPLOYEE_1_TEST_
 
 ### Endpoints:
 #### Statistics `[GET] /statistics`
+##### Roles
+- `Manager`
+##### Response
 ```json
 {
     "data": {
         "daily_average": 1.1,
         "weekly_average": 1.36,
         "monthly_average": 0.56
+    }
+}
+```
+
+#### Votes `[POST] /votes`
+##### Info
+An employee can only vote `once every day` (calculated in the timezone that is set in the .env file)
+##### Roles
+- `Employee`
+##### Request
+```json
+{
+    "mood": 2
+}
+```
+##### Response
+```json
+{
+    "data": {
+        "mood": 2
     }
 }
 ```
