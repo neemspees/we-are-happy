@@ -1,0 +1,17 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Vote</div>
+
+                    <div class="card-body">
+                        <p class="mb-0">Your vote has been registered.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
